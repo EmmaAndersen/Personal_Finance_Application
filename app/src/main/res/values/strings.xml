@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PF</string>
+
+    <string-array name="categories">
+        <item>Select Category ▽</item>
+        <item>Food</item>
+        <item>House</item>
+        <item>Charity</item>
+        <item>Cats</item>
+        <item>Education</item>
+        <item>Beer</item>
+        <item>Treat yourself</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="income_categories">
+        <item>Select Category ▽</item>
+        <item>Salary</item>
+        <item>Gift</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>
