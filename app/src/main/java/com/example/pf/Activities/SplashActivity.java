@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pf.MainActivity;
 import com.example.pf.R;
 
 public class SplashActivity extends AppCompatActivity {
