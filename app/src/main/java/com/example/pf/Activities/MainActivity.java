@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.pf.R;
 
@@ -28,15 +29,22 @@ public class MainActivity extends AppCompatActivity {
     private EditText edt_lastName;
     private CheckBox checkbox_remember;
 
+    private TextView tv_hi;
+    private String firstName;
+    private String lastName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tv_hi = findViewById(R.id.tv_hi);
+
         showWelcomeDialog();
 
         myBudgetButton = findViewById(R.id.button_myBudget);
         myIncomeButton = findViewById(R.id.button_budgetIncome);
+
         setOnClickListeners();
     }
 
@@ -72,15 +80,14 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferencesCheck();
 
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //myDialog.dismiss();
 
                 if (checkbox_remember.isChecked()) {
-                    String firstName = edt_firstName.getText().toString();
-                    String lastName = edt_lastName.getText().toString();
+                    firstName = edt_firstName.getText().toString();
+                    lastName = edt_lastName.getText().toString();
 
                     editor.putString(getString(R.string.firstName_key), firstName);
                     editor.commit();
@@ -101,6 +108,20 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString(getString(R.string.checkbox_key), "False");
                     editor.commit();
                 }
+
+                firstName = edt_firstName.getText().toString();
+                lastName = edt_lastName.getText().toString();
+
+                editor.putString(getString(R.string.firstName_key), firstName);
+                editor.commit();
+
+                editor.putString(getString(R.string.lastName_key), lastName);
+                editor.commit();
+
+                firstName = preferences.getString(getString(R.string.firstName_key), firstName);
+
+                tv_hi.setText("Hi " + firstName + " " + lastName);
+
                 myDialog.dismiss();
             }
         });
@@ -123,7 +144,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             checkbox_remember.setChecked(false);
         }
-
-
     }
 }
