@@ -118,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(getString(R.string.lastName_key), lastName);
                 editor.commit();
 
-                firstName = preferences.getString(getString(R.string.firstName_key), firstName);
-
                 tv_hi.setText("Hi " + firstName + " " + lastName);
 
                 myDialog.dismiss();

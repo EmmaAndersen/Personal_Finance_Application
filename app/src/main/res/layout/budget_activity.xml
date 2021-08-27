@@ -53,25 +53,48 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="456dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_Income"
             android:layout_width="match_parent"
-            android:layout_height="660dp"
-            android:background="@color/myTurquise" />
+            android:layout_height="450dp"
+            android:background="@color/myTurquise"
+            android:paddingBottom="5dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Income"
+            android:layout_marginLeft="50dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expenditure"
+            android:layout_marginLeft="20dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_income"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
+            android:layout_marginLeft="20dp"
             android:backgroundTint="@color/myGreen"
             android:scaleType="center"
             android:src="@android:drawable/ic_input_add"
             app:fabSize="normal" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
