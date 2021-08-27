@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PF</string>
 
+    <!--String arrays holding the categories for income/expenditure-->
     <string-array name="categories">
         <item>Select Category ▽</item>
         <item>Food</item>
@@ -19,5 +20,10 @@
         <item>Gift</item>
         <item>Other</item>
     </string-array>
+
+    <!--Shared preferences keys-->
+    <string name="checkbox_key">sp.checkbox</string>
+    <string name="firstName_key">sp.firstName</string>
+    <string name="lastName_key">sp.lastName</string>
 
 </resources>
