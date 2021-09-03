@@ -8,78 +8,82 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_myBudget"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
         android:layout_marginStart="8dp"
-        android:background="@mipmap/aradinbowimg_foreground"
+        android:background="@mipmap/aradinbowimgbtn_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.206" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/cookiemonster"
         android:text="My Budget"
         android:textColor="@color/myTurquise"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_myBudget"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintTop_toBottomOf="@+id/button_myBudget"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_budgetIncome"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="110dp"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="192dp"
         android:background="@mipmap/catimg_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/textView5"
+        android:layout_width="114dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/cookiemonster"
-        android:text="Earnings"
+        android:text="earnings"
         android:textColor="@color/myTurquise"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_budgetIncome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_budgetIncome" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_budgetMonth"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="110dp"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="192dp"
         android:background="@mipmap/charityimg_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/cookiemonster"
         android:text="This Month"
         android:textColor="@color/myTurquise"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_budgetMonth"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_budgetMonth" />
 
     <TextView
         android:id="@+id/tv_hi"
@@ -91,8 +95,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.278" />
 </androidx.constraintlayout.widget.ConstraintLayout>
