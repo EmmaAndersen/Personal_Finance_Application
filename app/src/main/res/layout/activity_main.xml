@@ -13,11 +13,13 @@
         android:layout_height="116dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="228dp"
-        android:background="@mipmap/aradinbowimgbtn_foreground"
+        android:src="@mipmap/aradinbowimgbtn_foreground"
+        android:background="@color/myPurple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="20dp"/>
 
     <TextView
         android:id="@+id/textView4"

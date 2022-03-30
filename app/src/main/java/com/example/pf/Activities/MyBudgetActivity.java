@@ -1,8 +1,10 @@
 package com.example.pf.Activities;
 
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,6 +52,9 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
     RecyclerView recyclerView;
     ImageView categoryTV;
 
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+
     private TextView totalAmount;
     private int totalKR;
 
@@ -88,6 +93,8 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
             }
         });
         observerSetup();
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
 
         mainViewModel.repository.dao.getTotalSum().observe(this, new Observer<Integer>() {
             @Override
@@ -100,6 +107,9 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
                 } else {
                     totalAmount.setText(+integer + " kr");
                 }
+
+                editor.putString(getString(R.string.totalAmount_key), integer + "  kr");
+                editor.commit();
             }
         });
     }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/cute_gradient_purple">
 
    <!-- <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
@@ -79,7 +80,7 @@
             android:layout_height="wrap_content"
             android:text="Income"
             android:layout_marginLeft="50dp"
-            android:background="@color/myGreen"/>
+            android:background="@color/myGreen" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/swapExpenditure"
@@ -95,7 +96,7 @@
             android:layout_height="56dp"
             android:layout_gravity="bottom|end"
             android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/myPurple"
+            android:backgroundTint="@color/myWarmPuple"
             android:scaleType="center"
             android:src="@android:drawable/ic_input_add"
             app:fabSize="normal" />

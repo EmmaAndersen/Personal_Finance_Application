@@ -25,5 +25,8 @@
     <string name="checkbox_key">sp.checkbox</string>
     <string name="firstName_key">sp.firstName</string>
     <string name="lastName_key">sp.lastName</string>
+    <string name="totalAmount_key">sp.total</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

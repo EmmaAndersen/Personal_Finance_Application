@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkbox_remember;
 
     private TextView tv_hi;
+    private TextView tv_totalBudget;
     private String firstName;
     private String lastName;
+    private String totalAmountString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +41,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv_hi = findViewById(R.id.tv_hi);
+        tv_totalBudget = findViewById(R.id.tv_totalBudgetMain);
 
         showWelcomeDialog();
 
         myBudgetButton = findViewById(R.id.button_myBudget);
-        myIncomeButton = findViewById(R.id.button_budgetIncome);
+        //myIncomeButton = findViewById(R.id.button_budgetIncome);
 
         setOnClickListeners();
     }
@@ -118,7 +121,10 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(getString(R.string.lastName_key), lastName);
                 editor.commit();
 
+                totalAmountString = preferences.getString(getString(R.string.totalAmount_key), "Hej");
+
                 tv_hi.setText("Hi " + firstName + " " + lastName);
+                tv_totalBudget.setText(totalAmountString);
 
                 myDialog.dismiss();
             }
