@@ -74,12 +74,14 @@
         android:layout_marginTop="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/swapIncome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Income"
             android:layout_marginLeft="50dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/swapExpenditure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Expenditure"

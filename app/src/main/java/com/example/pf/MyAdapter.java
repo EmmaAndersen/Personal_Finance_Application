@@ -123,6 +123,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
+    public class ViewHolderPositive extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        TextView category, amount, date;
+        ImageView itemImage;
+        onMyItemClickListener myOnItemClickListener;
+        int ID;
+
+        public ViewHolderPositive(@NonNull View itemView, onMyItemClickListener onMyItemClickListener) {
+            super(itemView);
+            itemImage = itemView.findViewById(R.id.imageID);
+            category = itemView.findViewById(R.id.tv_category);
+            amount = itemView.findViewById(R.id.tv_amount);
+            date = itemView.findViewById(R.id.tv_date);
+            this.myOnItemClickListener = onMyItemClickListener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onMyItemClickListener.onItemClick(getAdapterPosition());
+            ID = itemList.get(getAdapterPosition()).getId();
+        }
+    }
+
     public interface onMyItemClickListener {
         void onItemClick(int position);
     }

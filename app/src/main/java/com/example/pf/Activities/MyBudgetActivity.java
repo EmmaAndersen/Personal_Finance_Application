@@ -41,6 +41,7 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
     AppCompatButton cancelBtn, cancelBtn2;
     AppCompatButton saveBtn, deleteBtn;
     AppCompatButton incomeBtn, expenditureBtn;
+    AppCompatButton swapIncomeBtn, swapExpenditureBtn;
     EditText amount;
     Spinner spinner;
     String budget;
@@ -79,7 +80,6 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(myAdapter);
 
-
         fab = findViewById(R.id.fab_income);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,20 +93,39 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
             @Override
             public void onChanged(Integer integer) {
 
-                if(integer == null || integer == 0){
+                if (integer == null || integer == 0) {
                     totalAmount.setText("0");
-                }
-                else if(integer >= 0){
+                } else if (integer >= 0) {
                     totalAmount.setText("+ " + integer + " kr");
-                }
-                else{
-                    totalAmount.setText(+ integer + " kr");
+                } else {
+                    totalAmount.setText(+integer + " kr");
                 }
             }
         });
     }
 
-    private void chooseIncomeOrExpenditure(){
+    private void swapBetweenIncomeAndExpenditure() {
+        swapIncomeBtn = findViewById(R.id.swapIncome);
+        swapExpenditureBtn = findViewById(R.id.swapExpenditure);
+
+        swapIncomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemClass.amount >= 0) {
+
+                }
+            }
+        });
+
+        swapExpenditureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void chooseIncomeOrExpenditure() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.choose_sort_layout, null);
