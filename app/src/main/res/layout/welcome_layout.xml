@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/cute_gradient">
 
     <TextView
         android:id="@+id/textView"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/cute_gradient_purple"
         android:fontFamily="@font/cookiemonster"
         android:text="Log in"
         android:textAlignment="center"
