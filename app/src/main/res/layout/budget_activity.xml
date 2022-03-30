@@ -59,7 +59,7 @@
             android:id="@+id/recyclerView_Income"
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            android:background="@color/myTurquise"
+            android:background="@drawable/cute_gradient"
             android:paddingBottom="5dp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -78,14 +78,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Income"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@color/myGreen"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/swapExpenditure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Expenditure"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:background="@color/dark_red"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_income"
@@ -93,7 +95,7 @@
             android:layout_height="56dp"
             android:layout_gravity="bottom|end"
             android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/myGreen"
+            android:backgroundTint="@color/myPurple"
             android:scaleType="center"
             android:src="@android:drawable/ic_input_add"
             app:fabSize="normal" />

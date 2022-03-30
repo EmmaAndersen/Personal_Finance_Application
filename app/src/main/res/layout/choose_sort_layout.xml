@@ -12,7 +12,7 @@
         android:layout_height="250dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/white">
+        android:background="@drawable/cute_gradient">
 
         <ImageView
             android:layout_width="wrap_content"
