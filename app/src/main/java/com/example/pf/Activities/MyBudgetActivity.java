@@ -1,6 +1,7 @@
 package com.example.pf.Activities;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,15 +16,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pf.Database.Item;
+import com.example.pf.Fragments.IncomeFragment;
 import com.example.pf.MainViewModel;
 import com.example.pf.MyAdapter;
 import com.example.pf.R;
@@ -43,7 +49,7 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
     AppCompatButton cancelBtn, cancelBtn2;
     AppCompatButton saveBtn, deleteBtn;
     AppCompatButton incomeBtn, expenditureBtn;
-    AppCompatButton swapIncomeBtn, swapExpenditureBtn;
+    AppCompatButton swapIncomeBtn, swapExpenditureBtn, swapAllBtn;
     EditText amount;
     Spinner spinner;
     String budget;
@@ -112,6 +118,8 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
                 editor.commit();
             }
         });
+
+        swapBetweenIncomeAndExpenditure();
     }
 
     private void swapBetweenIncomeAndExpenditure() {
@@ -121,15 +129,24 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
         swapIncomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (itemClass.amount >= 0) {
-
-                }
+                IncomeFragment incomeFragment = new IncomeFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.budgetHolder, incomeFragment).commit();
             }
         });
 
         swapExpenditureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+            }
+        });
+
+        swapAllBtn = findViewById(R.id.swapAll);
+        swapAllBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
