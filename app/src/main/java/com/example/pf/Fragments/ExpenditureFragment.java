@@ -19,9 +19,10 @@ import com.example.pf.MainViewModel;
 import com.example.pf.MyAdapter;
 import com.example.pf.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemClickListener{
+public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemClickListener {
 
     RecyclerView recyclerView;
     private int idPosition;
@@ -29,7 +30,9 @@ public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemC
     private MyAdapter myAdapter;
     public MainViewModel mainViewModel;
 
-    public ExpenditureFragment(MainViewModel mvm, MyAdapter myAdapter){
+    private List<Item> incomeItems;
+
+    public ExpenditureFragment(MainViewModel mvm, MyAdapter myAdapter) {
         this.mainViewModel = mvm;
         this.myAdapter = myAdapter;
     }
@@ -40,13 +43,21 @@ public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemC
         View view = inflater.inflate(R.layout.fragment_expenditure, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView_IncomeFragment);
-        if(recyclerView.getLayoutManager() == null){
+        if (recyclerView.getLayoutManager() == null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(myAdapter);
         }
-
         observerSetup();
+
+       // incomeItems = mainViewModel.getAllItems().getValue();
+        //for (int i = 0; i < myAdapter.getItemCount(); i++) {
+          //  if (mainViewModel.getAllItems().getValue().get(i).amount >= 0) {
+            //    incomeItems.remove(mainViewModel.getAllItems().getValue().get(i));
+              //  //myAdapter.setItemList(incomeItems);
+            //}
+       // }
+
 
         return view;
     }
@@ -60,13 +71,14 @@ public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemC
         mainViewModel.getAllItems().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {
             @Override
             public void onChanged(List<Item> items) {
-                for(int i = 0; i < myAdapter.getItemCount(); i++){
-                    if(items.get(i).amount < 0){
-                        List<Item> incomeItems = items;
+                incomeItems  = new ArrayList<>();  //items
+                for (int i = 0; i < mainViewModel.getAllItems().getValue().size(); i++) {
+                    if (items.get(i).amount < 0) {
+                        incomeItems.add(items.get(i));
                         myAdapter.setItemList(incomeItems);
-                        Log.d("ITEMTAG", "items: " + incomeItems.get(i).amount);
                     }
                 }
+                myAdapter.notifyDataSetChanged();
             }
         });
         mainViewModel.getSearchResult().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {  //getViewLifecycleOwner() to this ?
