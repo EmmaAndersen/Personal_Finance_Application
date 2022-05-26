@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.example.pf.MyAdapter;
+
 /*Entity represents a table within the database. All the fields in user,
 corresponds to columns/in the table. i.e this class should not have any logic.*/
 

@@ -26,16 +26,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Item> itemList;
     private onMyItemClickListener onMyItemClickListener;
 
+    public String typeOfFinance;
+    public int typeIndex;
+    private ViewHolder myViewHolder;
+
     public MyAdapter(int id, onMyItemClickListener onMyItemClickListener) {
         itemCount = id;
         this.onMyItemClickListener = onMyItemClickListener;
+        typeIndex = 0;
     }
 
     @NonNull
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(itemCount, parent, false);
-        ViewHolder myViewHolder = new ViewHolder(v, onMyItemClickListener);
+        myViewHolder = new ViewHolder(v, onMyItemClickListener);
         return myViewHolder;
     }
 
@@ -43,6 +48,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         itemList = items;
         notifyDataSetChanged();
     }
+
+    public void SetPlusOrMinus(){
+        for (int i = 0; i < itemList.size(); i++){
+            if(itemList.get(i).getAmount() >= 0){
+                Log.d("CHECKTAG", "item more than zero: " + itemList.get(i).amount);
+
+            }
+        }
+    }
+
+   /* @Override
+    public int getItemViewType(int position) {
+        if(itemList.get(position).amount >= 0){
+            //typeOfFinance = "INCOME";
+            if(itemList != null && myViewHolder != null){
+                for(int i = 0; i < itemList.size(); i++){
+                    myViewHolder.amount.setVisibility(View.INVISIBLE);
+                    myViewHolder.itemImage.setVisibility(View.INVISIBLE);
+                    myViewHolder.date.setVisibility(View.INVISIBLE);
+
+                }
+            }
+        } else{
+            typeOfFinance = "EXPENDITURE";
+
+        }
+        Log.d("TYPETAG", ": " + typeOfFinance);
+        return position;
+    }*/
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
@@ -95,7 +129,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return itemList == null ? 0 : itemList.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pf.Database.Item;
+import com.example.pf.Fragments.ExpenditureFragment;
 import com.example.pf.Fragments.IncomeFragment;
 import com.example.pf.MainViewModel;
 import com.example.pf.MyAdapter;
@@ -55,7 +56,7 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
     String budget;
     String myItem;
     FloatingActionButton fab;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerViewIncome;
     ImageView categoryTV;
 
     private SharedPreferences preferences;
@@ -64,13 +65,14 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
     private TextView totalAmount;
     private int totalKR;
 
-    private MyAdapter myAdapter;
+    private MyAdapter myAdapter, incomeAdapter;
     public MainViewModel mainViewModel;
     AlertDialog myDialog, myDialogDelete;
     Item itemClass;
 
     int idPosition;
     private ImageView upperImage;
+    private LinearLayoutManager linearLayoutManager, linearLayoutManagerIncome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +81,15 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
 
         mainViewModel = new MainViewModel(this.getApplication());
         myAdapter = new MyAdapter(R.layout.item_column, this);  //This is because i implemented the interface in the activityclass
+        incomeAdapter = new MyAdapter(R.layout.item_column, this);
         totalAmount = findViewById(R.id.kroner);
         recyclerView = findViewById(R.id.recyclerView_Income);
         upperImage = findViewById(R.id.upperImage);
         upperImage.setAlpha(127);  //deprecated but still works
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        linearLayoutManagerIncome = new LinearLayoutManager(this);
+        linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         linearLayoutManager.setReverseLayout(true);
         recyclerView.setHasFixedSize(true);
@@ -129,16 +134,19 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
         swapIncomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IncomeFragment incomeFragment = new IncomeFragment();
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.budgetHolder, incomeFragment).commit();
+                IncomeFragment incomeFragment = new IncomeFragment(mainViewModel, myAdapter);
+                ReplaceIncomeList(incomeFragment);
+
+                //observerSetup();
+                //myAdapter.SetPlusOrMinus();
             }
         });
 
         swapExpenditureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ExpenditureFragment expenditureFragment = new ExpenditureFragment(mainViewModel, myAdapter);
+                ReplaceIncomeList(expenditureFragment);
 
             }
         });
@@ -147,9 +155,15 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
         swapAllBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.d("TAG", "clicked on ALL");
             }
         });
+    }
+
+    private void ReplaceIncomeList(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameHolder, fragment).commit();
     }
 
     private void chooseIncomeOrExpenditure() {

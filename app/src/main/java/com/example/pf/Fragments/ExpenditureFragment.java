@@ -1,20 +1,18 @@
 package com.example.pf.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.LinearLayout;
 
 import com.example.pf.Database.Item;
 import com.example.pf.MainViewModel;
@@ -23,7 +21,7 @@ import com.example.pf.R;
 
 import java.util.List;
 
-public class IncomeFragment extends Fragment implements MyAdapter.onMyItemClickListener{
+public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemClickListener{
 
     RecyclerView recyclerView;
     private int idPosition;
@@ -31,20 +29,15 @@ public class IncomeFragment extends Fragment implements MyAdapter.onMyItemClickL
     private MyAdapter myAdapter;
     public MainViewModel mainViewModel;
 
-    public IncomeFragment(MainViewModel mvm, MyAdapter myAdapter) {
+    public ExpenditureFragment(MainViewModel mvm, MyAdapter myAdapter){
         this.mainViewModel = mvm;
         this.myAdapter = myAdapter;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_income, container, false);
+        View view = inflater.inflate(R.layout.fragment_expenditure, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView_IncomeFragment);
         if(recyclerView.getLayoutManager() == null){
@@ -81,5 +74,4 @@ public class IncomeFragment extends Fragment implements MyAdapter.onMyItemClickL
             }
         });
     }
-
 }
