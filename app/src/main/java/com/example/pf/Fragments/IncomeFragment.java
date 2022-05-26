@@ -21,6 +21,7 @@ import com.example.pf.MainViewModel;
 import com.example.pf.MyAdapter;
 import com.example.pf.R;
 
+import java.util.Collection;
 import java.util.List;
 
 public class IncomeFragment extends Fragment implements MyAdapter.onMyItemClickListener{
@@ -67,7 +68,13 @@ public class IncomeFragment extends Fragment implements MyAdapter.onMyItemClickL
         mainViewModel.getAllItems().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {
             @Override
             public void onChanged(List<Item> items) {
-                myAdapter.setItemList(items);
+                for(int i = 0; i < myAdapter.getItemCount(); i++){
+                    if(items.get(i).amount >= 0){
+                        List<Item> incomeItems = items;
+                        myAdapter.setItemList(incomeItems);
+                        Log.d("ITEMTAG", "items: " + incomeItems.get(i).amount);
+                    }
+                }
             }
         });
         mainViewModel.getSearchResult().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {  //getViewLifecycleOwner() to this ?

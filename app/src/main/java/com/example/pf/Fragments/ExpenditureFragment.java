@@ -60,7 +60,13 @@ public class ExpenditureFragment extends Fragment implements MyAdapter.onMyItemC
         mainViewModel.getAllItems().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {
             @Override
             public void onChanged(List<Item> items) {
-                myAdapter.setItemList(items);
+                for(int i = 0; i < myAdapter.getItemCount(); i++){
+                    if(items.get(i).amount < 0){
+                        List<Item> incomeItems = items;
+                        myAdapter.setItemList(incomeItems);
+                        Log.d("ITEMTAG", "items: " + incomeItems.get(i).amount);
+                    }
+                }
             }
         });
         mainViewModel.getSearchResult().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {  //getViewLifecycleOwner() to this ?

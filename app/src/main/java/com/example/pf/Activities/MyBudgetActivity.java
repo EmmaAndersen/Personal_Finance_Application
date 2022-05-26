@@ -147,7 +147,6 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
             public void onClick(View v) {
                 ExpenditureFragment expenditureFragment = new ExpenditureFragment(mainViewModel, myAdapter);
                 ReplaceIncomeList(expenditureFragment);
-
             }
         });
 
