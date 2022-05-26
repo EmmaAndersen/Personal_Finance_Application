@@ -1,5 +1,6 @@
 package com.example.pf.Fragments;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

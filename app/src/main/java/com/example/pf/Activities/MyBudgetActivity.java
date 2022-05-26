@@ -149,14 +149,6 @@ public class MyBudgetActivity extends AppCompatActivity implements MyAdapter.onM
                 ReplaceIncomeList(expenditureFragment);
             }
         });
-
-        swapAllBtn = findViewById(R.id.swapAll);
-        swapAllBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("TAG", "clicked on ALL");
-            }
-        });
     }
 
     private void ReplaceIncomeList(Fragment fragment) {
